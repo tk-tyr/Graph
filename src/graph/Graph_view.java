@@ -19,10 +19,12 @@ public class Graph_view extends Frame implements ActionListener,WindowListener {
 	private Button button1 = new Button("BarChart");
 	private Button button2 = new Button("LineChart");
  
+
 	
 	public Graph_view(){
 		addWindowListener(this);
 		setTitle("Graph");
+		
 		DefaultCategoryDataset data = new DefaultCategoryDataset();
 		
 		data.addValue(300, "USA", "2005");
@@ -92,19 +94,19 @@ public class Graph_view extends Frame implements ActionListener,WindowListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource()== button1){
-						
+		DefaultCategoryDataset data = new DefaultCategoryDataset();
+		
+		data.addValue(300, "USA", "2005");
+		data.addValue(500, "USA", "2006");
+		data.addValue(120, "USA", "2007");
+		
+		data.addValue(200, "China", "2005");
+		data.addValue(400, "China", "2006");
+		data.addValue(320, "China", "2007");
+		
+		if(e.getSource()== button1){		
 			setTitle("Graph1");
-			DefaultCategoryDataset data = new DefaultCategoryDataset();
-			
-			data.addValue(300, "USA", "2005");
-			data.addValue(500, "USA", "2006");
-			data.addValue(120, "USA", "2007");
-			
-			data.addValue(200, "China", "2005");
-			data.addValue(400, "China", "2006");
-			data.addValue(320, "China", "2007");
-			
+
 			JFreeChart chart = ChartFactory.createBarChart("Import Volume","Year","Ton",data,PlotOrientation.VERTICAL,true,false,false);
 			ChartPanel cpanel = new ChartPanel(chart);
 			add(cpanel, BorderLayout.CENTER);
@@ -114,15 +116,6 @@ public class Graph_view extends Frame implements ActionListener,WindowListener {
 			
 		}else if(e.getSource()== button2){
 			setTitle("Graph2");
-			DefaultCategoryDataset data = new DefaultCategoryDataset();
-			
-			data.addValue(300, "USA", "2005");
-			data.addValue(500, "USA", "2006");
-			data.addValue(120, "USA", "2007");
-			
-			data.addValue(200, "China", "2005");
-			data.addValue(400, "China", "2006");
-			data.addValue(320, "China", "2007");
 			
 			JFreeChart chart = ChartFactory.createLineChart("Import Volume","Year","Ton",data,PlotOrientation.VERTICAL,true,false,false);
 			ChartPanel cpanel = new ChartPanel(chart);
@@ -133,10 +126,7 @@ public class Graph_view extends Frame implements ActionListener,WindowListener {
 
 			}
 		
-		}
-
-
-		
+		}	
 		
 }
 
